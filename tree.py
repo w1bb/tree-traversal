@@ -62,27 +62,70 @@ class Tree:
             return self._find(data, node.right)
 
     def deleteTree(self):
-        # TODO 1
+        """Method for deleting tree - next time, take a look at the function that you're calling
+        
+        Args:
+            None
+
+        Returns:
+            None
+        """
         self.root = None
 
     def printTree(self):
-        # TODO 1
+        """Method for printing the tree...
+        
+        Args:
+            None
+
+        Returns:
+            None
+        """
         if self.root is not None:
             self._printInorderTree(self.root)
 
     def _printInorderTree(self, node):
-        # TODO 1
+        """Method for printing the tree... In-order :). Helper for Tree.printTree()
+        
+        Args:
+            node (Tree): the node to be printed
+
+        Returns:
+            None
+        """
         if node is not None:
             self._printInorderTree(node.left)
             print(str(node.data) + ' ')
             self._printInorderTree(node.right)
 
     def _printPreorderTree(self, node):
-        # TODO 2
-        pass
+        """Method for printing the tree... Pre-order this time.
+        
+        Args:
+            node (Tree): the root of the tree to be printed
+
+        Returns:
+            None
+        """
+        if node is None:
+            return
+        print(str(node.data) + ' ')
+        self._printPreorderTree(self, node)
+        self._printPreorderTree(self, node)
 
     def _printPostorderTree(self, node):
-        # TODO 2
-        pass
+        """Method for printing the tree... Post-order this time.
+        
+        Args:
+            node (Tree): the root of the tree to be printed
+
+        Returns:
+            None
+        """
+        if node is None:
+            return
+        self._printPostorderTree(self, node)
+        self._printPostorderTree(self, node)
+        print(str(node.data) + ' ')
 
 
