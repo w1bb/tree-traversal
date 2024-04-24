@@ -1,0 +1,20 @@
+name: Walk
+
+on:
+  push:
+    tags:
+      - '**'
+
+jobs:
+  run:
+    name: Walk
+    runs-on: ubuntu-latest
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+      - name: Walk
+        shell: bash
+        run: |
+          doxygen
